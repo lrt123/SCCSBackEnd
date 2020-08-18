@@ -6,11 +6,54 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7590f7ec-b8a5-4f7c-8af4-67b3b5b201b3" name="Default Changelist" comment="" />
+    <list default="true" id="7590f7ec-b8a5-4f7c-8af4-67b3b5b201b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/SCCSBackEnd.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/AcademyInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/AdminInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Class.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/ClassroomBuilding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/ClassroomInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/CourseInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/GradeInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/MajorInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/RoleMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/SectionInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/StudentCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/SysUserLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Teacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/controller/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/dt/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/exception/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/filter/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/mapper/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/model/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/service/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/edu/guet/util/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="26d7d962-57d0-4dad-8d7f-380db58da132" value="Orange" />
+    </colors>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -23,7 +66,29 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="学生选课" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="学生选课" type="feb32156:DbDataSourceImpl" />
+        <item name="SCCS: schema" type="3abd1b6a:OraImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="学生选课" type="feb32156:DbDataSourceImpl" />
+        <item name="SCCS: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="学生选课" type="feb32156:DbDataSourceImpl" />
+        <item name="SCCS: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="packages" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -37,6 +102,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -49,8 +119,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="G:/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="G:\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="mavenHome" value="C:/apache-maven-3.6.3" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -70,18 +139,22 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="oracle" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="G:/Apache-Subversion-1.10.3/bin/svn.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/cn/edu/guet/model" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="consents" />
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.36" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.36" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="SCCS:war">
@@ -201,21 +274,34 @@
       <workItem from="1596358483744" duration="7000" />
       <workItem from="1596358505243" duration="830000" />
       <workItem from="1597720152131" duration="1494000" />
+      <workItem from="1597723272027" duration="2199000" />
+      <workItem from="1597725509284" duration="930000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/SCCSBackEnd" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="464" y="105" key="#Notifications" timestamp="1597726031519">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="464" y="105" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1597726031519" />
     <state x="361" y="74" key="#Project_Structure" timestamp="1595764494227">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="74" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1595764494227" />
-    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595576565324">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="279" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597725802867">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1595576565324" />
+    <state x="279" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597725802867" />
     <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1595770627658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -228,30 +314,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597720180836" />
-    <state x="455" y="56" key="CommitChangelistDialog2" timestamp="1597727318097">
+    <state x="702" y="212" key="FileChooserDialogImpl" timestamp="1597726428199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="455" y="56" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1597727318097" />
-    <state x="196" y="100" key="DiffContextDialog" timestamp="1597727290141">
+    <state x="702" y="212" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597726428199" />
+    <state width="1852" height="248" key="GridCell.Tab.0.bottom" timestamp="1597725493094">
       <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="196" y="100" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597727290141" />
-    <state width="1024" height="55" key="GridCell.Tab.0.bottom" timestamp="1595578310402">
-      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1024" height="55" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1595578310402" />
-    <state width="1024" height="55" key="GridCell.Tab.0.center" timestamp="1595578310402">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1852" height="248" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597725493094" />
+    <state width="1852" height="248" key="GridCell.Tab.0.center" timestamp="1597725493094">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="55" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1595578310402" />
-    <state width="1024" height="55" key="GridCell.Tab.0.left" timestamp="1595578310402">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1852" height="248" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597725493094" />
+    <state width="1852" height="248" key="GridCell.Tab.0.left" timestamp="1597725493094">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="55" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1595578310402" />
-    <state width="1024" height="55" key="GridCell.Tab.0.right" timestamp="1595578310402">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1852" height="248" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597725493094" />
+    <state width="1852" height="248" key="GridCell.Tab.0.right" timestamp="1597725493094">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1024" height="55" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1595578310402" />
+    <state width="1852" height="248" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597725493094" />
     <state width="1024" height="55" key="GridCell.Tab.1.bottom" timestamp="1595578310402">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -284,18 +370,19 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1024" height="55" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1595578310402" />
-    <state x="272" y="0" key="SettingsEditor" timestamp="1595517458878">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="334" height="548" key="HiddenNamespacesPopup" timestamp="1597725311964">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="334" height="548" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1597725311964" />
+    <state x="340" y="0" key="SettingsEditor" timestamp="1597724513429">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="272" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595517458878" />
-    <state x="560" y="312" key="com.intellij.ide.util.TipDialog" timestamp="1597727262231">
+    <state x="340" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597724513429" />
+    <state x="560" y="312" key="com.intellij.ide.util.TipDialog" timestamp="1597725509506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="312" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597727262231" />
-    <state x="705" y="277" key="git4idea.merge.GitMergeDialog" timestamp="1597727348253">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="705" y="277" key="git4idea.merge.GitMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597727348253" />
+    <state x="560" y="312" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597725509506" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1595770598218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
