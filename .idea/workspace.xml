@@ -37,7 +37,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/SCCSBackEnd" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -60,7 +60,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1f1tjFjYPnPgo4xQZpRdldG7xFi" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -226,6 +228,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597720180836" />
+    <state x="455" y="56" key="CommitChangelistDialog2" timestamp="1597727318097">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="455" y="56" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1597727318097" />
+    <state x="196" y="100" key="DiffContextDialog" timestamp="1597727290141">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="196" y="100" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597727290141" />
     <state width="1024" height="55" key="GridCell.Tab.0.bottom" timestamp="1595578310402">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -278,6 +288,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="272" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1595517458878" />
+    <state x="560" y="312" key="com.intellij.ide.util.TipDialog" timestamp="1597727262231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="560" y="312" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597727262231" />
+    <state x="705" y="277" key="git4idea.merge.GitMergeDialog" timestamp="1597727348253">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="705" y="277" key="git4idea.merge.GitMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597727348253" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1595770598218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
