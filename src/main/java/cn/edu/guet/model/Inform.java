@@ -7,6 +7,8 @@ public class Inform {
   private String message;
   private java.sql.Timestamp starttime;
   private java.sql.Timestamp endtime;
+  private String title;
+  private String publisher;
 
 
   public String getId() {
@@ -42,6 +44,24 @@ public class Inform {
 
   public void setEndtime(java.sql.Timestamp endtime) {
     this.endtime = endtime;
+  }
+
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+
+  public String getPublisher() {
+    return publisher;
+  }
+
+  public void setPublisher(String publisher) {
+    this.publisher = publisher;
   }
 
 }
