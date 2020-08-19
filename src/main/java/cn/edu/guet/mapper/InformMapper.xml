@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.guet.mapper.InformMapper">
     <select id="getInform" resultType="inform">
-        SELECT * FROM INFORM
+        SELECT I.ID, I.MESSAGE, I.STARTTIME, I.ENDTIME, I.TITLE, USERNAME PUBLISHER
+        FROM INFORM I,
+             USER_INFO U
+        WHERE PUBLISHER = U.ID
+          AND I.ID = #{id}
+    </select>
+    <resultMap id="informTitle" type="inform">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="starttime" column="starttime"/>
+    </resultMap>
+    <select id="getInformList" resultMap="informTitle">
+        select ID,TITLE,STARTTIME from inform
     </select>
 </mapper>
