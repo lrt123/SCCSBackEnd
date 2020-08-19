@@ -7,4 +7,5 @@ import java.util.List;
 public interface IInformService {
     Inform getInform(String id);
     List<Inform> getInformList();
+    boolean saveInform(Inform inform);
 }

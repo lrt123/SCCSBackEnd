@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface InformMapper {
     Inform getInform(String id);
-
+    int saveInform(Inform inform);
     List<Inform> getInformList();
 }

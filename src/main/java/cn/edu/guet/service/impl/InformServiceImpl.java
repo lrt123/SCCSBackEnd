@@ -21,4 +21,14 @@ public class InformServiceImpl implements IInformService {
     public List<Inform> getInformList() {
         return informMapper.getInformList();
     }
+
+    @Override
+    public boolean saveInform(Inform inform) {
+        int rownum = informMapper.saveInform(inform);
+        if (rownum > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

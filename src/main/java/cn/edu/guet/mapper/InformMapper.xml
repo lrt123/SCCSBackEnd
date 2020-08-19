@@ -14,6 +14,15 @@
         <result property="starttime" column="starttime"/>
     </resultMap>
     <select id="getInformList" resultMap="informTitle">
-        select ID,TITLE,STARTTIME from inform
+        select ID, TITLE, STARTTIME
+        from inform
     </select>
+    <insert id="saveInform" parameterType="inform">
+        <selectKey keyProperty="id" resultType="String" order="BEFORE">
+            select to_char(to_number(id)+1) id from (select id from inform order by id desc) where
+            rownum=1
+        </selectKey>
+        INSERT INTO INFORM(ID,MESSAGE,STARTTIME,ENDTIME,TITLE,PUBLISHER) VALUES(#{id}, #{message}, #{starttime},
+        #{endtime},#{title},#{publisher})
+    </insert>
 </mapper>
