@@ -5,9 +5,9 @@ import cn.edu.guet.model.Student;
 import java.util.List;
 
 public interface StudentMapper {
-    Student saveStudent();
-    int updateStudent();
-    int deleteStudent();
+    void saveStudent(Student student);
+    void updateStudent(Student student);
+    void deleteStudentById(String id);
     Student getStudentById(String id);
     List<Student> getAllStudent();
 }
