@@ -1,13 +1,12 @@
 package cn.edu.guet.model;
 
 
-public class Class {
+public class Clazz {
 
   private String classid;
   private String headteacher;
   private String gradeid;
   private String grade;
-
 
   public String getClassid() {
     return classid;
@@ -17,7 +16,6 @@ public class Class {
     this.classid = classid;
   }
 
-
   public String getHeadteacher() {
     return headteacher;
   }
@@ -26,7 +24,6 @@ public class Class {
     this.headteacher = headteacher;
   }
 
-
   public String getGradeid() {
     return gradeid;
   }
@@ -34,7 +31,6 @@ public class Class {
   public void setGradeid(String gradeid) {
     this.gradeid = gradeid;
   }
-
 
   public String getGrade() {
     return grade;
