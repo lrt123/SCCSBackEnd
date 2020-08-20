@@ -31,4 +31,25 @@ public class InformServiceImpl implements IInformService {
             return false;
         }
     }
+
+    @Override
+    public boolean updateInform(Inform inform) {
+        int rownum = informMapper.updateInform(inform);
+        if (rownum > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteInform(Inform inform) {
+        int rownum = informMapper.deleteInform(inform);
+        System.out.println("aaaaa" + rownum);
+        if (rownum > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
