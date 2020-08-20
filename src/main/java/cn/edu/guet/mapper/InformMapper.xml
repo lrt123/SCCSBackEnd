@@ -25,4 +25,10 @@
         INSERT INTO INFORM(ID,MESSAGE,STARTTIME,ENDTIME,TITLE,PUBLISHER) VALUES(#{id}, #{message}, #{starttime},
         #{endtime},#{title},#{publisher})
     </insert>
+    <update id="updateInform" parameterType="inform">
+        UPDATE INFORM SET MESSAGE=#{message},ENDTIME=#{endtime},TITLE=#{title} WHERE ID=#{id}
+    </update>
+    <delete id="deleteInform" parameterType="inform">
+        DELETE FROM INFORM WHERE ID=#{id}
+    </delete>
 </mapper>

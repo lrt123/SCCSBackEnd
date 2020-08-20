@@ -8,4 +8,6 @@ public interface InformMapper {
     Inform getInform(String id);
     int saveInform(Inform inform);
     List<Inform> getInformList();
+    int updateInform(Inform inform);
+    int deleteInform(Inform inform);
 }

@@ -56,11 +56,37 @@ public class InformController {
     @RequestMapping(value = "save", method = RequestMethod.POST)
     @ResponseBody
     public ResponseTemplate saveInform(@RequestBody Inform inform) {
-        System.out.println(inform.getMessage());
         if (iInformService.saveInform(inform)) {
             responseTemplate.setCode(0);
             responseTemplate.setMessage("成功插入");
         } else {
+            responseTemplate.setCode(-1);
+            responseTemplate.setMessage("失败");
+        }
+        return responseTemplate;
+    }
+
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseTemplate updateInform(@RequestBody Inform inform){
+        if (iInformService.updateInform(inform)){
+            responseTemplate.setCode(0);
+            responseTemplate.setMessage("成功更新");
+        }else {
+            responseTemplate.setCode(-1);
+            responseTemplate.setMessage("失败");
+        }
+        return responseTemplate;
+    }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseTemplate deleteInform(@RequestBody Inform inform){
+        if (iInformService.deleteInform(inform)){
+            responseTemplate.setCode(0);
+            responseTemplate.setMessage("成功删除");
+        }
+        else {
             responseTemplate.setCode(-1);
             responseTemplate.setMessage("失败");
         }
