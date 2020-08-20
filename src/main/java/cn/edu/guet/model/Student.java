@@ -4,34 +4,39 @@ package cn.edu.guet.model;
 public class Student {
 
   private String id;
-  private String majorid;
-  private String classid;
+  private MajorInfo majorInfo;
+  private Clazz clazz;
+  private UserInfo userInfo;
 
+  public UserInfo getUserInfo() {
+    return userInfo;
+  }
+
+  public void setUserInfo(UserInfo userInfo) {
+    this.userInfo = userInfo;
+  }
 
   public String getId() {
     return id;
   }
-
   public void setId(String id) {
     this.id = id;
   }
 
-
-  public String getMajorid() {
-    return majorid;
+  public MajorInfo getMajorInfo() {
+    return majorInfo;
   }
 
-  public void setMajorid(String majorid) {
-    this.majorid = majorid;
+  public void setMajorInfo(MajorInfo majorInfo) {
+    this.majorInfo = majorInfo;
   }
 
-
-  public String getClassid() {
-    return classid;
+  public Clazz getClazz() {
+    return clazz;
   }
 
-  public void setClassid(String classid) {
-    this.classid = classid;
+  public void setClazz(Clazz clazz) {
+    this.clazz = clazz;
   }
 
 }

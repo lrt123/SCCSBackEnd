@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.guet.mapper.StudentMapper">
+    <resultMap id="studentMap" type="student">
+        <id property="id" column="ID"/>
+        <association property="majorInfo" javaType="MajorInfo">
+            <id property="majorid" column="MAJORID"/>
+            <result property="majorname" column="MAJORNAME"/>
+            <result property="majorleader" column="MAJORLEADER"/>
+        </association>
+        <association property="clazz" javaType="Clazz">
+            <id property="classid" column="classid"/>
+            <result property="headteacher" column="HEADTEACHER"/>
+            <result property="gradeid"  column="GRADEID"/>
+            <result property="grade" column="GRADE"/>
+        </association>
+        <association property="userInfo" javaType="UserInfo">
+            <id property="id" column="ID"/>
+            <result property="username" column="USERNAME"/>
+            <result property="age" column="AGE"/>
+            <result property="sex" column="SEX"/>
+            <result property="phone" column="PHONE"/>
+        </association>
+    </resultMap>
+
+    <select id="getStudentById" resultMap="studentMap">
+        select *
+        from student s,major_info mi,class c,user_info ui
+        where s.majorid = mi.majorid and s.classid = c.classid AND ui.id = s.id AND s.id = #{id}
+    </select>
+    <select id="getAllStudent" resultMap="studentMap">
+        select *
+        from student s,major_info mi,class c,user_info ui
+        where s.majorid = mi.majorid and s.classid = c.classid and ui.id = s.id
+    </select>
+
+    <update id="updateStudent" parameterType="cn.edu.guet.model.Student">
+        update student set majorid=#{majorInfo.majorid},classid=#{clazz.classid} where id=#{id}
+    </update>
+
+    <insert id="saveStudent" parameterType="cn.edu.guet.model.Student">
+        insert into student values(#{id},#{majorInfo.majorid},#{clazz.classid})
+    </insert>
+
+    <delete id="deleteStudentById">
+        delete from student where id=#{id}
+    </delete>
 
 </mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.UserInfoMapper">
+    <resultMap id="userInfoMap" type="UserInfo">
+        <id property="id" column="ID"/>
+        <result property="username" column="USERNAME"/>
+        <result property="age" column="AGE"/>
+        <result property="sex" column="SEX"/>
+        <result property="phone" column="PHONE"/>
+    </resultMap>
+    <select id="getUserInfoById" resultMap="userInfoMap">
+        select * from user_info where id=#{id}
+    </select>
+    <select id="getAllUserInfo" resultMap="userInfoMap">
+        select * from user_info
+    </select>
+
+    <update id="updateUserInfo" parameterType="UserInfo">
+        update user_info set username=#{username},age=#{age},sex=#{sex},phone=#{phone} where id=#{id}
+    </update>
+
+    <delete id="deleteUserInfoById" >
+        delete from user_info where id =#{id}
+    </delete>
+
+    <insert id="saveUserInfo" parameterType="UserInfo">
+        insert into user_info values(#{id},#{username},#{age},#{sex},#{phone})
+    </insert>
+
+</mapper>
+
