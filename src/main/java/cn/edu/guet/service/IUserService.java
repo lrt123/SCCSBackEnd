@@ -11,5 +11,5 @@ public interface IUserService {
     void deleteUsersById(String id) throws Exception;
     Users getUsersById(String id);
     List<Users> getAllUsers();
-    List<Menu> getUserMenus(Users users);
+    List<Menu> getUserMenusById(String id);
 }
