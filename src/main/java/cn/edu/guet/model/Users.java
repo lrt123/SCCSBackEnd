@@ -10,7 +10,6 @@ public class Users {
   private UserInfo userInfo;
   private List<Role> roles;
 
-
   public String getId() {
     return id;
   }

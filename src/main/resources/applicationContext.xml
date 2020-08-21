@@ -19,4 +19,5 @@
     <bean id="userInfoService" class="cn.edu.guet.service.impl.UserInfoServiceImpl"/>
     <bean id="responseTemplate" class="cn.edu.guet.model.ResponseTemplate" />
     <bean id="roleService" class="cn.edu.guet.service.impl.RoleServiceImpl"/>
+    <bean id="menuService" class="cn.edu.guet.service.impl.MenuServiceImpl"/>
 </beans>
