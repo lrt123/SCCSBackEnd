@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.TeacherInfoChangeMapper">
+
+    <select id="getAllTeachers" resultMap="Teachers">
+        SELECT * FROM teacher
+    </select>
+    <resultMap id="Teachers" type="cn.edu.guet.model.Teacher">
+        <id property="id" column="ID"/>
+        <result property="jobtitle" column="JOBTITLE"/>
+        <collection property="userInfo" column="ID" select="getUserInfo"/>
+    </resultMap>
+    <select id="getUserInfo" resultType="cn.edu.guet.model.UserInfo">
+        SELECT username,age,sex,phone FROM user_info WHERE id=#{id}
+    </select>
+
+    <select id="getTeacherById" resultMap="Teachers"
+            parameterType="string">
+        SELECT * FROM teacher WHERE id=#{id}
+    </select>
+
+    <update id="teacherjobChange" parameterType="cn.edu.guet.model.Teacher">
+        UPDATE teacher SET jobtitle=#{jobtitle} WHERE id=#{id}
+    </update>
+
+    <insert id="addTeacher" parameterType="cn.edu.guet.model.Teacher">
+        INSERT INTO teacher VALUES(#{id},#{jobtitle})
+    </insert>
+
+    <delete id="deleteTeacher" parameterType="string"  >
+        DELETE FROM teacher WHERE id=#{id}
+    </delete>
+
+</mapper>
