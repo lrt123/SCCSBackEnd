@@ -54,7 +54,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<Menu> getUserMenus(Users users) {
+    public List<Menu> getUserMenusById(String id) {
+        Users users = usersMapper.getUsersById(id);
         List<Role> roles = users.getRoles();
         List<Menu> menuList = null;
         for (Role r:roles) {
