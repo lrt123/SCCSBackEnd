@@ -7,6 +7,7 @@ public class ResponseTemplate implements Serializable {
     private String message;
     private Object data;
 
+
     public int getCode() {
         return code;
     }

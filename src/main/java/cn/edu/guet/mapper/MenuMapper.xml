@@ -3,25 +3,36 @@
 <mapper namespace="cn.edu.guet.mapper.MenuMapper">
 
 	<resultMap id="getMenuAndChildMenusMap" type="menu">
-		<id property="id" column="ID"/>
+		<id property="menuid" column="MENUID"/>
 		<result property="pId" column="PID"/>
-		<result property="name" column="NAME"/>
+		<result property="menuname" column="MENUNAME"/>
 		<result property="icon" column="ICON"/>
 		<result property="url" column="URL"/>
 
-		<collection property="childMenus" column="ID" select="getChildMenuByPID"></collection>
-
+		<collection property="childMenus" column="MENUID" select="getChildMenuByPID"></collection>
 
 	</resultMap>
 
-	<select id="getChildMenuByPID" resultType="menu">
-		SELECT c.* FROM menus c,menus p WHERE c.pid=p.id AND p.id=#{value}
+	<select id="getChildMenuByPID" resultMap="getMenuAndChildMenusMap">
+		SELECT c.* FROM menu c,menu p WHERE c.pid=p.menuid AND p.menuid=#{value}
 	</select>
 
 	<select id="getMenuById" resultMap="getMenuAndChildMenusMap">
-		SELECT * FROM menus WHERE id=#{value}
+		SELECT * FROM menu WHERE menuid=#{value}
 	</select>
 	<select id="getAllMenu" resultMap="getMenuAndChildMenusMap">
-		SELECT * FROM menus
+		SELECT * FROM menu
 	</select>
+
+	<insert id="saveMenu" parameterType="Menu">
+		insert into menu values(#{menuid},#{pId},#{menuname},#{url},#{icon})
+	</insert>
+
+	<update id="updateMenu" parameterType="Menu">
+		update menu set pid=#{pId},menuname=#{menuname},url=#{url},icon=#{icon} where menuid=#{menuid}
+	</update>
+
+	<delete id="deleteMenuById">
+		delete from menu where menuid=#{menuid}
+	</delete>
 </mapper>

@@ -14,11 +14,12 @@
         https://www.springframework.org/schema/context/spring-context.xsd">
     <import resource="Transaction.xml"/>
     <bean id="informService" class="cn.edu.guet.service.impl.InformServiceImpl"/>
-    <bean id="responseTemplate" class="cn.edu.guet.model.ResponseTemplate" />
-    <bean id="teacherInfoChangeService"
-          class="cn.edu.guet.service.impl.TeacherInfoChangeServiceImpl"/>
     <bean id="studentService" class="cn.edu.guet.service.impl.StudentServiceImpl"/>
     <bean id="userService" class="cn.edu.guet.service.impl.UserServiceImpl"/>
     <bean id="userInfoService" class="cn.edu.guet.service.impl.UserInfoServiceImpl"/>
-    <bean id="roleService" class="cn.edu.guet.service.impl.RoleServiceImpl"/>
+    <bean id="responseTemplate" class="cn.edu.guet.model.ResponseTemplate" />
+    <bean id="teacherInfoChangeService"
+          class="cn.edu.guet.service.impl.TeacherInfoChangeServiceImpl"/>
+  <bean id="roleService" class="cn.edu.guet.service.impl.RoleServiceImpl"/>
+  <bean id="menuService" class="cn.edu.guet.service.impl.MenuServiceImpl"/>
 </beans>
