@@ -5,6 +5,7 @@ public class Teacher {
 
   private String id;
   private String jobtitle;
+  private UserInfo userInfo;
 
 
   public String getId() {
@@ -24,4 +25,11 @@ public class Teacher {
     this.jobtitle = jobtitle;
   }
 
+  public UserInfo getUserInfo() {
+    return userInfo;
+  }
+
+  public void setUserInfo(UserInfo userInfo) {
+    this.userInfo = userInfo;
+  }
 }
