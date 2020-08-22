@@ -7,6 +7,14 @@ public class CourseInfo {
   private String lessonname;
   private String major;
 
+  @Override
+  public String toString() {
+    return "CourseInfo{" +
+            "lessoncode='" + lessoncode + '\'' +
+            ", lessonname='" + lessonname + '\'' +
+            ", major='" + major + '\'' +
+            '}';
+  }
 
   public String getLessoncode() {
     return lessoncode;

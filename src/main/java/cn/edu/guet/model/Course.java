@@ -4,12 +4,47 @@ package cn.edu.guet.model;
 public class Course {
 
   private String lessonno;
-  private String teacherid;
-  private String lessoncode;
-  private String classroomloc;
+  private Teacher teacher;
+  private CourseInfo courseInfo;
+  private ClassroomInfo classroomInfo;
   private double credit;
   private double period;
 
+  @Override
+  public String toString() {
+    return "Course{" +
+            "lessonno='" + lessonno + '\'' +
+            ", teacher=" + teacher +
+            ", courseInfo=" + courseInfo +
+            ", classroomInfo=" + classroomInfo +
+            ", credit=" + credit +
+            ", period=" + period +
+            '}';
+  }
+
+  public Teacher getTeacher() {
+    return teacher;
+  }
+
+  public void setTeacher(Teacher teacher) {
+    this.teacher = teacher;
+  }
+
+  public CourseInfo getCourseInfo() {
+    return courseInfo;
+  }
+
+  public void setCourseInfo(CourseInfo courseInfo) {
+    this.courseInfo = courseInfo;
+  }
+
+  public ClassroomInfo getClassroomInfo() {
+    return classroomInfo;
+  }
+
+  public void setClassroomInfo(ClassroomInfo classroomInfo) {
+    this.classroomInfo = classroomInfo;
+  }
 
   public String getLessonno() {
     return lessonno;
@@ -18,34 +53,6 @@ public class Course {
   public void setLessonno(String lessonno) {
     this.lessonno = lessonno;
   }
-
-
-  public String getTeacherid() {
-    return teacherid;
-  }
-
-  public void setTeacherid(String teacherid) {
-    this.teacherid = teacherid;
-  }
-
-
-  public String getLessoncode() {
-    return lessoncode;
-  }
-
-  public void setLessoncode(String lessoncode) {
-    this.lessoncode = lessoncode;
-  }
-
-
-  public String getClassroomloc() {
-    return classroomloc;
-  }
-
-  public void setClassroomloc(String classroomloc) {
-    this.classroomloc = classroomloc;
-  }
-
 
   public double getCredit() {
     return credit;
