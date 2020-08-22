@@ -7,7 +7,7 @@ import java.util.List;
 public class Menu {
 
   private String menuid;
-  private String pId;
+  private String pid;
   private String menuname;
   private String url;
   private String icon;
@@ -21,13 +21,12 @@ public class Menu {
     this.menuid = menuid;
   }
 
-
-  public String getpId() {
-    return pId;
+  public String getPid() {
+    return pid;
   }
 
-  public void setpId(String pId) {
-    this.pId = pId;
+  public void setPid(String pid) {
+    this.pid = pid;
   }
 
   public List<Menu> getChildMenus() {

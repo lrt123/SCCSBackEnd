@@ -5,6 +5,7 @@ import cn.edu.guet.model.ResponseTemplate;
 import cn.edu.guet.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +31,8 @@ public class MenuController {
         responseTemplate.setData(menu);
         return responseTemplate;
     }
+    @ResponseBody
+    @RequestMapping(value = "getAllMenu",method = RequestMethod.GET)
     public ResponseTemplate getAllMenu(){
         List<Menu> allMenu = menuService.getAllMenu();
         responseTemplate.setCode(200);
@@ -37,7 +40,10 @@ public class MenuController {
         responseTemplate.setData(allMenu);
         return responseTemplate;
     }
-    public void saveMenu(Menu menu) {
+    @ResponseBody
+    @RequestMapping(value = "saveMenu",method = RequestMethod.POST)
+    public ResponseTemplate saveMenu(@RequestBody Menu menu) {
+        System.err.println("menu.getMenuname() = " + menu.getMenuname());
         try {
             menuService.saveMenu(menu);
             responseTemplate.setCode(200);
@@ -49,8 +55,11 @@ public class MenuController {
             responseTemplate.setMessage("添加菜单失败");
             responseTemplate.setData(menu);
         }
+        return responseTemplate;
     }
-    public void deleteMenuById(String id){
+    @ResponseBody
+    @RequestMapping(value = "deleteMenuById",method = RequestMethod.GET)
+    public ResponseTemplate deleteMenuById(String id){
         try {
             menuService.deleteMenuById(id);
             responseTemplate.setCode(200);
@@ -62,8 +71,11 @@ public class MenuController {
             responseTemplate.setMessage("删除菜单失败");
             responseTemplate.setData(null);
         }
+        return responseTemplate;
     }
-    public void updateMenu(Menu menu) {
+    @ResponseBody
+    @RequestMapping(value = "updateMenu",method = RequestMethod.POST)
+    public ResponseTemplate updateMenu(@RequestBody Menu menu) {
         try {
             menuService.updateMenu(menu);
             responseTemplate.setCode(200);
@@ -75,5 +87,6 @@ public class MenuController {
             responseTemplate.setMessage("更新菜单失败");
             responseTemplate.setData(menu);
         }
+        return responseTemplate;
     }
 }

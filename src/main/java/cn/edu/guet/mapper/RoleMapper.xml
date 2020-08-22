@@ -28,4 +28,7 @@
     <delete id="deleteRoleById">
         delete from role where roleid =#{roleid}
     </delete>
+    <insert id="saveRoleMenu" >
+        insert into role_menu values(#{menuid},#{roleid})
+    </insert>
 </mapper>

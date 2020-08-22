@@ -4,13 +4,11 @@
 
 	<resultMap id="getMenuAndChildMenusMap" type="menu">
 		<id property="menuid" column="MENUID"/>
-		<result property="pId" column="PID"/>
+		<result property="pid" column="PID"/>
 		<result property="menuname" column="MENUNAME"/>
 		<result property="icon" column="ICON"/>
 		<result property="url" column="URL"/>
-
 		<collection property="childMenus" column="MENUID" select="getChildMenuByPID"></collection>
-
 	</resultMap>
 
 	<select id="getChildMenuByPID" resultMap="getMenuAndChildMenusMap">
@@ -20,19 +18,23 @@
 	<select id="getMenuById" resultMap="getMenuAndChildMenusMap">
 		SELECT * FROM menu WHERE menuid=#{value}
 	</select>
-	<select id="getAllMenu" resultMap="getMenuAndChildMenusMap">
-		SELECT * FROM menu
+	<select id="getUserMenu" resultMap="getMenuAndChildMenusMap">
+		SELECT m.* FROM menu m,user_role ur,role_menu rm
+		WHERE ur.roleid=rm.roleid AND m.menuid=rm.menuid AND ur.id=#{userid} AND m.pid IS NULL
 	</select>
-
+	<select id="getAllMenu" resultMap="getMenuAndChildMenusMap">
+		SELECT * FROM menu WHERE pid IS NULL
+	</select>
 	<insert id="saveMenu" parameterType="Menu">
-		insert into menu values(#{menuid},#{pId},#{menuname},#{url},#{icon})
+		insert into menu values(#{menuid},#{pid},#{menuname},#{url},#{icon})
 	</insert>
 
 	<update id="updateMenu" parameterType="Menu">
-		update menu set pid=#{pId},menuname=#{menuname},url=#{url},icon=#{icon} where menuid=#{menuid}
+		update menu set pid=#{pid},menuname=#{menuname},url=#{url},icon=#{icon} where menuid=#{menuid}
 	</update>
 
 	<delete id="deleteMenuById">
 		delete from menu where menuid=#{menuid}
 	</delete>
+
 </mapper>

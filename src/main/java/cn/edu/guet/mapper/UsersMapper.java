@@ -11,6 +11,7 @@ public interface UsersMapper {
     void updateUsers(Users users) throws Exception;
     void deleteUsersById(String id) throws Exception;
     void saveRole(@Param("id") String id,@Param("roleid") String roleid) throws Exception;
+    void updateRole(@Param("id") String id,@Param("roleid") String roleid) throws Exception;
     Users getUsersById(String id);
     List<Users> getAllUsers();
 }

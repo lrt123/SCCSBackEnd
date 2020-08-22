@@ -19,7 +19,6 @@ public class UsersController {
 
     @Autowired
     IUserService userService;
-
     @Autowired
     ResponseTemplate responseTemplate;
 

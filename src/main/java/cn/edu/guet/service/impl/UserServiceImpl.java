@@ -35,6 +35,9 @@ public class UserServiceImpl implements IUserService {
     public void updateUsers(Users users) throws Exception {
         usersMapper.updateUsers(users);
         userInfoMapper.updateUserInfo(users.getUserInfo());
+        for (Role role:users.getRoles()) {
+            usersMapper.updateRole(users.getId(),role.getRoleid());
+        }
     }
 
     @Override
@@ -55,13 +58,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<Menu> getUserMenusById(String id) {
-        Users users = usersMapper.getUsersById(id);
-        List<Role> roles = users.getRoles();
-        List<Menu> menuList = null;
-        for (Role r:roles) {
-           Role role = roleMapper.getRoleById(r.getRoleid());
-            menuList = role.getMenus();
-        }
-        return menuList;
+       return  menuMapper.getUserMenu(id);
     }
 }
