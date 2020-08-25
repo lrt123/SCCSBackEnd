@@ -1,7 +1,10 @@
 package cn.edu.guet.service.impl;
 
+import cn.edu.guet.mapper.MenuMapper;
+import cn.edu.guet.mapper.RoleMapper;
 import cn.edu.guet.mapper.UserInfoMapper;
 import cn.edu.guet.mapper.UsersMapper;
+import cn.edu.guet.model.Menu;
 import cn.edu.guet.model.Role;
 import cn.edu.guet.model.UserInfo;
 import cn.edu.guet.model.Users;
@@ -15,6 +18,10 @@ public class UserServiceImpl implements IUserService {
     UsersMapper usersMapper;
     @Autowired
     UserInfoMapper userInfoMapper;
+    @Autowired
+    RoleMapper roleMapper;
+    @Autowired
+    MenuMapper menuMapper;
     @Override
     public void saveUsers(Users users) throws Exception {
         usersMapper.saveUsers(users);
@@ -28,6 +35,9 @@ public class UserServiceImpl implements IUserService {
     public void updateUsers(Users users) throws Exception {
         usersMapper.updateUsers(users);
         userInfoMapper.updateUserInfo(users.getUserInfo());
+        for (Role role:users.getRoles()) {
+            usersMapper.updateRole(users.getId(),role.getRoleid());
+        }
     }
 
     @Override
@@ -44,5 +54,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<Users> getAllUsers() {
         return usersMapper.getAllUsers();
+    }
+
+    @Override
+    public List<Menu> getUserMenusById(String id) {
+       return  menuMapper.getUserMenu(id);
     }
 }

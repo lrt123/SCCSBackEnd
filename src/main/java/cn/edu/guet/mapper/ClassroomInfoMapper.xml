@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.ClassroomInfoMapper">
+	<resultMap id="classroomInfoMap" type="ClassroomInfo">
+		<id property="classroomloc" column="CLASSROOMLOC"/>
+		<result property="classroomname" column="CLASSROOMNAME"/>
+
+		<association  property="classroomBuilding" javaType="ClassroomBuilding">
+			<result property="id" column="ID"/>
+			<result property="name" column="NAME"/>
+		</association>
+
+	</resultMap>
+	<select id="getCourseInfoById" resultMap="classroomInfoMap">
+        select * from class_info where classroomloc=#{classroomloc}
+    </select>
+	<select id="getAllCourseInfo" resultMap="classroomInfoMap">
+        select * from class_info
+    </select>
+
+	<update id="updateCourseInfo" parameterType="ClassroomInfo">
+        update class_info set classroomname=#{classroomname},buildingid=#{classroom_building.id} where classroomloc=#{classroomloc}
+    </update>
+
+
+</mapper>

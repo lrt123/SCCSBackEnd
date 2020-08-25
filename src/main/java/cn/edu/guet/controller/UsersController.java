@@ -1,5 +1,6 @@
 package cn.edu.guet.controller;
 
+import cn.edu.guet.model.Menu;
 import cn.edu.guet.model.ResponseTemplate;
 import cn.edu.guet.model.Users;
 import cn.edu.guet.service.IUserService;
@@ -18,7 +19,6 @@ public class UsersController {
 
     @Autowired
     IUserService userService;
-
     @Autowired
     ResponseTemplate responseTemplate;
 
@@ -88,6 +88,16 @@ public class UsersController {
         responseTemplate.setCode(200);
         responseTemplate.setMessage("查找所用用户");
         responseTemplate.setData(userList);
+        return responseTemplate;
+    }
+
+    @RequestMapping("getUserMenu")
+    @ResponseBody
+    public ResponseTemplate getUserMenusById(String id){
+        List<Menu> menuLsit = userService.getUserMenusById(id);
+        responseTemplate.setCode(200);
+        responseTemplate.setMessage("查找菜单成功");
+        responseTemplate.setData(menuLsit);
         return responseTemplate;
     }
 }

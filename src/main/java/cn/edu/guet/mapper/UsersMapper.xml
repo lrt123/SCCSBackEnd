@@ -37,6 +37,9 @@
     <insert id="saveRole">
         insert into user_role values(#{id},#{roleid})
     </insert>
+    <update id="updateRole">
+        update user_role set roleid=#{roleid} where id = #{id}
+    </update>
 
     <delete id="deleteUsersById">
         delete from users where id=#{id}

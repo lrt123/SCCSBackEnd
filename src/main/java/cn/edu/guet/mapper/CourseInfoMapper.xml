@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.CourseInfoMapper">
+	<resultMap id="courseInfoMap" type="CourseInfo">
+		<id property="lessoncode" column="LESSONCODE"/>
+		<result property="lessonname" column="LESSONNAME"/>
+		<result property="major" column="MAJOR"/>
+
+	</resultMap>
+	<select id="getCourseInfoById" resultMap="courseInfoMap">
+        select * from course_info where lessoncode=#{lessoncode}
+    </select>
+	<select id="getAllCourseInfo" resultMap="courseInfoMap">
+        select * from course_info
+    </select>
+
+	<update id="updateCourseInfo" parameterType="CourseInfo">
+        update course_info set lessonname=#{lessonname},major=#{major} where lessoncode=#{lessoncode}
+    </update>
+
+
+</mapper>
