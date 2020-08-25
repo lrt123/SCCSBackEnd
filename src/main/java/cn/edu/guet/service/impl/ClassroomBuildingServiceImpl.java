@@ -4,9 +4,10 @@ import cn.edu.guet.mapper.ClassroomBuildingMapper;
 import cn.edu.guet.model.ClassroomBuilding;
 import cn.edu.guet.service.IClassroomBuildingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ClassroomBuildingServiceImpl implements IClassroomBuildingService {
     @Autowired
     ClassroomBuildingMapper classroomBuildingMapper;

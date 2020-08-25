@@ -10,9 +10,10 @@ import cn.edu.guet.model.UserInfo;
 import cn.edu.guet.model.Users;
 import cn.edu.guet.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class UserServiceImpl implements IUserService {
     @Autowired
     UsersMapper usersMapper;
@@ -24,6 +25,7 @@ public class UserServiceImpl implements IUserService {
     MenuMapper menuMapper;
     @Override
     public void saveUsers(Users users) throws Exception {
+        users.setPassword(users.getId());
         usersMapper.saveUsers(users);
         userInfoMapper.saveUserInfo(users.getUserInfo());
         for(Role role:users.getRoles()){

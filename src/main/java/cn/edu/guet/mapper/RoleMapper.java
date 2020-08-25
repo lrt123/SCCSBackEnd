@@ -2,9 +2,10 @@ package cn.edu.guet.mapper;
 
 import cn.edu.guet.model.Role;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface RoleMapper {
     Role getRoleById(String roleId);
     List<Role> getAllRole();

@@ -7,59 +7,38 @@ import cn.edu.guet.service.ICourseInfoService;
 import cn.edu.guet.service.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("CourseInfo")
 public class CourseInfoController {
 
     @Autowired
     ICourseInfoService courseInfoService;
-
-    @Autowired
-    ResponseTemplate responseTemplate;
     @RequestMapping(value = "getCourseInfoById",method = RequestMethod.GET)
-    @ResponseBody
     public ResponseTemplate getCourseInfoById(String lessonno){
         CourseInfo courseInfo=courseInfoService.getCourseInfoById(lessonno);
-        responseTemplate.setCode(200);
-        responseTemplate.setMessage("查询成功");
-        responseTemplate.setData(courseInfo);
-        //System.out.println("course aaaaaaaaaaaaaaaaa= " + course);
-        return responseTemplate;
+        return ResponseTemplate.result(200,"查询成功",courseInfo);
     }
-    @ResponseBody
     @RequestMapping(value = "getAllCourseInfo",method = RequestMethod.GET)
     public ResponseTemplate getAllCourseInfo(){
         List<CourseInfo> courseInfoList = null;
             courseInfoList = courseInfoService.getAllCourseInfo();
-            responseTemplate.setData(courseInfoList);
-            responseTemplate.setCode(200);
-            responseTemplate.setMessage("查询成功");
-            return responseTemplate;
+        return ResponseTemplate.result(200,"查询成功",courseInfoList);
     }
 
 
     @RequestMapping(value = "updateCourseInfo",method = RequestMethod.POST)
-    @ResponseBody
 
     public ResponseTemplate updateCourseInfo(@RequestBody CourseInfo courseInfo){
         try {
             courseInfoService.updateCourseInfo(courseInfo);
-            responseTemplate.setCode(200);
-            responseTemplate.setMessage("更新成功");
-            responseTemplate.setData(null);
+            return ResponseTemplate.result(200,"更新成功",null);
         } catch (Exception e) {
             e.printStackTrace();
-            responseTemplate.setCode(401);
-            responseTemplate.setMessage("更新失败");
-            responseTemplate.setData(courseInfo);
+            return ResponseTemplate.result(401,"更新失败",courseInfo);
         }
-        return responseTemplate;
     }
 }

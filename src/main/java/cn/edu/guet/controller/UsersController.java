@@ -6,98 +6,79 @@ import cn.edu.guet.model.Users;
 import cn.edu.guet.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("users")
 public class UsersController {
 
     @Autowired
     IUserService userService;
-    @Autowired
-    ResponseTemplate responseTemplate;
 
     @RequestMapping(value = "saveUser",method = RequestMethod.POST)
-    @ResponseBody
     public ResponseTemplate saveUsers(@RequestBody Users users){
         try {
-            userService.saveUsers(users);
-            responseTemplate.setCode(200);
-            responseTemplate.setMessage("添加用户信息成功");
-            responseTemplate.setData(null);
+            if(users!=null){
+                userService.saveUsers(users);
+                return ResponseTemplate.result(200,"添加用户信息成功",null);
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            responseTemplate.setCode(401);
-            responseTemplate.setMessage("添加用户失败");
-            responseTemplate.setData(users);
+            return ResponseTemplate.result(401,"添加用户失败",users);
         }
-        return responseTemplate;
+        return ResponseTemplate.result(401,"参数为空",null);
     }
     @RequestMapping(value = "updateUser" ,method = RequestMethod.POST)
-    @ResponseBody
     public ResponseTemplate updateUsers(@RequestBody Users users){
         try{
-            userService.updateUsers(users);
-            responseTemplate.setCode(200);
-            responseTemplate.setMessage("更新用户成功");
-            responseTemplate.setData(null);
+            if(users!=null){
+                userService.updateUsers(users);
+                return ResponseTemplate.result(200,"更新用户成功",null);
+            }
+
         }catch (Exception e) {
             e.printStackTrace();
-            responseTemplate.setCode(401);
-            responseTemplate.setMessage("更新用户失败");
-            responseTemplate.setData(users);
+            return ResponseTemplate.result(401,"添加用户失败",users);
         }
-        return responseTemplate;
+        return ResponseTemplate.result(401,"参数为空",null);
     }
 
     @RequestMapping(value = "deleteUser" ,method = RequestMethod.GET)
-    @ResponseBody
     public ResponseTemplate deleteUsersById(String id){
         try{
-            userService.deleteUsersById(id);
-            responseTemplate.setCode(200);
-            responseTemplate.setMessage("删除用户成功");
-            responseTemplate.setData(null);
+            if(id !=null && id!=""){
+                userService.deleteUsersById(id);
+                return ResponseTemplate.result(200,"删除用户成功",null);
+            }
         }catch (Exception e) {
             e.printStackTrace();
-            responseTemplate.setCode(401);
-            responseTemplate.setMessage("删除用户失败");
-            responseTemplate.setData(null);
+            return ResponseTemplate.result(401,"删除用户失败",null);
         }
-        return responseTemplate;
+        return ResponseTemplate.result(401,"参数为空",null);
     }
 
     @RequestMapping("getUserById")
-    @ResponseBody
     public ResponseTemplate getUsersById(String id){
-        Users user = userService.getUsersById(id);
-        responseTemplate.setCode(200);
-        responseTemplate.setMessage("查找用户成功");
-        responseTemplate.setData(user);
-        return responseTemplate;
+        if(id!=null && id!=""){
+            Users user = userService.getUsersById(id);
+            return ResponseTemplate.result(200,"查找用户成功",user);
+        }
+        return ResponseTemplate.result(200,"参数为空",null);
     }
     @RequestMapping("getAllUser")
-    @ResponseBody
     public ResponseTemplate getAllUsers(){
         List<Users> userList = userService.getAllUsers();
-        responseTemplate.setCode(200);
-        responseTemplate.setMessage("查找所用用户");
-        responseTemplate.setData(userList);
-        return responseTemplate;
+        return ResponseTemplate.result(200,"查找所用用户",userList);
     }
 
     @RequestMapping("getUserMenu")
-    @ResponseBody
     public ResponseTemplate getUserMenusById(String id){
-        List<Menu> menuLsit = userService.getUserMenusById(id);
-        responseTemplate.setCode(200);
-        responseTemplate.setMessage("查找菜单成功");
-        responseTemplate.setData(menuLsit);
-        return responseTemplate;
+        if(id!=null && id!=""){
+            List<Menu> menuLsit = userService.getUserMenusById(id);
+            return ResponseTemplate.result(200,"查找菜单成功",menuLsit);
+        }
+        return ResponseTemplate.result(200,"参数为空",null);
     }
 }
