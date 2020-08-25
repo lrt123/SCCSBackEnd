@@ -4,10 +4,11 @@ import cn.edu.guet.mapper.TeacherInfoChangeMapper;
 import cn.edu.guet.model.Teacher;
 import cn.edu.guet.service.ITeacherInfoChangeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.TreeMap;
-
+@Service
 public class TeacherInfoChangeServiceImpl implements ITeacherInfoChangeService {
 
     @Autowired

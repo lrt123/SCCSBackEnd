@@ -9,87 +9,59 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("inform")
 public class InformController {
 
 
     @Autowired
     IInformService iInformService;
-
-    @Autowired
-    ResponseTemplate responseTemplate;
-
     @RequestMapping(value = "get/{id}", method = RequestMethod.GET)
-    @ResponseBody
     public ResponseTemplate getInform(@PathVariable String id) {
         System.out.println("收到参数");
         Inform inform = iInformService.getInform(id);
         if (inform != null) {
-            responseTemplate.setCode(0);
-            responseTemplate.setMessage("成功");
-            responseTemplate.setData(inform);
+            return ResponseTemplate.result(0,"成功",inform);
         } else {
-            responseTemplate.setCode(-1);
-            responseTemplate.setMessage("无数据");
-            responseTemplate.setData(null);
+            return ResponseTemplate.result(-1,"无数据",null);
         }
-        return responseTemplate;
     }
 
     @RequestMapping(value = "getlist", method = RequestMethod.GET)
-    @ResponseBody
     public ResponseTemplate getInformList() {
         List<Inform> data = iInformService.getInformList();
         if (data != null) {
-            responseTemplate.setCode(0);
-            responseTemplate.setMessage("成功");
-            responseTemplate.setData(data);
+            return ResponseTemplate.result(0,"成功",data);
         } else {
-            responseTemplate.setCode(-1);
-            responseTemplate.setMessage("获取数据失败");
-            responseTemplate.setData(null);
+            return ResponseTemplate.result(-1,"获取数据失败",null);
         }
-        return responseTemplate;
     }
 
     @RequestMapping(value = "save", method = RequestMethod.POST)
-    @ResponseBody
     public ResponseTemplate saveInform(@RequestBody Inform inform) {
         if (iInformService.saveInform(inform)) {
-            responseTemplate.setCode(0);
-            responseTemplate.setMessage("成功插入");
+            return ResponseTemplate.result(0,"成功",null);
         } else {
-            responseTemplate.setCode(-1);
-            responseTemplate.setMessage("失败");
+            return ResponseTemplate.result(-1,"失败",null);
         }
-        return responseTemplate;
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.POST)
-    @ResponseBody
     public ResponseTemplate updateInform(@RequestBody Inform inform){
         if (iInformService.updateInform(inform)){
-            responseTemplate.setCode(0);
-            responseTemplate.setMessage("成功更新");
+            return ResponseTemplate.result(0,"成功更新",null);
         }else {
-            responseTemplate.setCode(-1);
-            responseTemplate.setMessage("失败");
+            return ResponseTemplate.result(-1,"失败",null);
         }
-        return responseTemplate;
     }
 
     @RequestMapping(value = "delete", method = RequestMethod.POST)
-    @ResponseBody
     public ResponseTemplate deleteInform(@RequestBody Inform inform){
         if (iInformService.deleteInform(inform)){
-            responseTemplate.setCode(0);
-            responseTemplate.setMessage("成功删除");
+            return ResponseTemplate.result(0,"成功删除",null);
         }
         else {
-            responseTemplate.setCode(-1);
-            responseTemplate.setMessage("失败");
+            return ResponseTemplate.result(-1,"失败",null);
         }
-        return responseTemplate;
     }
 }

@@ -6,9 +6,10 @@ import cn.edu.guet.mapper.TeacherInfoChangeMapper;
 import cn.edu.guet.model.Course;
 import cn.edu.guet.service.ICourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class CourseServiceImpl implements ICourseService {
     @Autowired
     CourseMapper courseMapper;

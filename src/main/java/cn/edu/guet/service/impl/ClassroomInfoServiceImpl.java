@@ -6,9 +6,10 @@ import cn.edu.guet.model.ClassroomInfo;
 import cn.edu.guet.service.IClassroomInfoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ClassroomInfoServiceImpl implements IClassroomInfoService {
     @Autowired
     ClassroomInfoMapper classroomInfoMapper;

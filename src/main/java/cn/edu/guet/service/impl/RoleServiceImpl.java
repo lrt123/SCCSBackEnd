@@ -5,9 +5,10 @@ import cn.edu.guet.model.Menu;
 import cn.edu.guet.model.Role;
 import cn.edu.guet.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class RoleServiceImpl implements IRoleService {
     @Autowired
     RoleMapper roleMapper;

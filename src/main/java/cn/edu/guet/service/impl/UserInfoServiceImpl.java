@@ -5,9 +5,10 @@ import cn.edu.guet.mapper.UsersMapper;
 import cn.edu.guet.model.UserInfo;
 import cn.edu.guet.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class UserInfoServiceImpl implements IUserInfoService {
     @Autowired
     UserInfoMapper userInfoMapper;
