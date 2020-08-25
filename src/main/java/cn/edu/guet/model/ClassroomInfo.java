@@ -3,19 +3,26 @@ package cn.edu.guet.model;
 
 public class ClassroomInfo {
 
-  private String buildingid;
+  private ClassroomBuilding classroomBuilding;
   private String classroomloc;
   private String classroomname;
 
-
-  public String getBuildingid() {
-    return buildingid;
+  @Override
+  public String toString() {
+    return "ClassroomInfo{" +
+            "classroomBuilding=" + classroomBuilding +
+            ", classroomloc='" + classroomloc + '\'' +
+            ", classroomname='" + classroomname + '\'' +
+            '}';
   }
 
-  public void setBuildingid(String buildingid) {
-    this.buildingid = buildingid;
+  public ClassroomBuilding getClassroomBuilding() {
+    return classroomBuilding;
   }
 
+  public void setClassroomBuilding(ClassroomBuilding classroomBuilding) {
+    this.classroomBuilding = classroomBuilding;
+  }
 
   public String getClassroomloc() {
     return classroomloc;

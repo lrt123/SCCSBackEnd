@@ -1,6 +1,9 @@
 package cn.edu.guet.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Menu {
 
   private String menuid;
@@ -9,7 +12,7 @@ public class Menu {
   private String url;
   private String icon;
 
-
+  private List<Menu> childMenus=new ArrayList<Menu>();
   public String getMenuid() {
     return menuid;
   }
@@ -17,7 +20,6 @@ public class Menu {
   public void setMenuid(String menuid) {
     this.menuid = menuid;
   }
-
 
   public String getPid() {
     return pid;
@@ -27,6 +29,13 @@ public class Menu {
     this.pid = pid;
   }
 
+  public List<Menu> getChildMenus() {
+    return childMenus;
+  }
+
+  public void setChildMenus(List<Menu> childMenus) {
+    this.childMenus = childMenus;
+  }
 
   public String getMenuname() {
     return menuname;

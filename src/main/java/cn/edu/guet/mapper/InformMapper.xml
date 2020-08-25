@@ -2,6 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.guet.mapper.InformMapper">
     <select id="getInform" resultType="inform">
-        SELECT * FROM INFORM
+        SELECT I.ID, I.MESSAGE, I.STARTTIME, I.ENDTIME, I.TITLE, USERNAME PUBLISHER
+        FROM INFORM I,
+             USER_INFO U
+        WHERE PUBLISHER = U.ID
+          AND I.ID = #{id}
     </select>
+    <resultMap id="informTitle" type="inform">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="starttime" column="starttime"/>
+    </resultMap>
+    <select id="getInformList" resultMap="informTitle">
+        select ID, TITLE, STARTTIME
+        from inform
+    </select>
+    <insert id="saveInform" parameterType="inform">
+        <selectKey keyProperty="id" resultType="String" order="BEFORE">
+            select to_char(to_number(id)+1) id from (select id from inform order by id desc) where
+            rownum=1
+        </selectKey>
+        INSERT INTO INFORM(ID,MESSAGE,STARTTIME,ENDTIME,TITLE,PUBLISHER) VALUES(#{id}, #{message}, #{starttime},
+        #{endtime},#{title},#{publisher})
+    </insert>
+    <update id="updateInform" parameterType="inform">
+        UPDATE INFORM SET MESSAGE=#{message},ENDTIME=#{endtime},TITLE=#{title} WHERE ID=#{id}
+    </update>
+    <delete id="deleteInform" parameterType="inform">
+        DELETE FROM INFORM WHERE ID=#{id}
+    </delete>
 </mapper>
