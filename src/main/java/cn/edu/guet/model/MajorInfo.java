@@ -6,6 +6,7 @@ public class MajorInfo {
   private String majorid;
   private String majorname;
   private String majorleader;
+  private String academyid;
 
 
   public String getMajorid() {
@@ -34,4 +35,11 @@ public class MajorInfo {
     this.majorleader = majorleader;
   }
 
+  public String getAcademyid() {
+    return academyid;
+  }
+
+  public void setAcademyid(String academyid) {
+    this.academyid = academyid;
+  }
 }

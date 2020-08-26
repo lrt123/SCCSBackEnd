@@ -29,8 +29,13 @@ public class Inform {
   }
 
 
-  public java.sql.Timestamp getStarttime() {
-    return starttime;
+  public long getStarttime() {
+    if (starttime != null){
+      return starttime.getTime();
+    }
+    else {
+      return 0;
+    }
   }
 
   public void setStarttime(java.sql.Timestamp starttime) {
@@ -38,8 +43,12 @@ public class Inform {
   }
 
 
-  public java.sql.Timestamp getEndtime() {
-    return endtime;
+  public long getEndtime() {
+    if (endtime != null){
+      return endtime.getTime();
+    }else {
+      return 0;
+    }
   }
 
   public void setEndtime(java.sql.Timestamp endtime) {
