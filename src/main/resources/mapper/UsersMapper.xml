@@ -22,9 +22,7 @@
         select * from users u,user_info ui,role r,user_role ur where u.id = ui.id AND ur.id = u.id AND ur.roleid=r.roleId AND u.id=#{id}
     </select>
 
-    <select id="getAllUsers" resultMap="usersMap">
-        select * from users u,user_info ui,role r,user_role ur where u.id = ui.id AND ur.id = u.id AND ur.roleid=r.roleId
-    </select>
+
 
     <update id="updateUsers" parameterType="Users">
         update users set password=#{password} where id=#{id}
@@ -45,4 +43,32 @@
         delete from users where id=#{id}
     </delete>
 
+    <select id="getAllUsers" resultMap="usersMap">
+        SELECT * FROM
+        (SELECT rownum rn,a.* FROM (
+        SELECT u.id,u.password,ui.username,ui.age,ui.sex,ui.phone,r.roleid,r.rolename
+        FROM users u,user_info ui,role r,user_role ur
+        WHERE u.id = ui.id AND ur.id = u.id AND ur.roleid=r.roleId) a
+        WHERE rownum <![CDATA[<=]]> #{endRow})
+        WHERE rn>=#{startRow}
+    </select>
+    <select id="getAllUsersTotal" resultType="int">
+        SELECT COUNT(*) FROM users u,user_info ui,role r,user_role ur
+        WHERE u.id = ui.id AND ur.id = u.id AND ur.roleid=r.roleId
+    </select>
+    <select id="getUsersByCondition" resultMap="usersMap">
+        select *
+        from users u,user_info ui,role r,user_role ur
+        where u.id = ui.id AND ur.id = u.id AND ur.roleid=r.roleId
+        <if test="id!=null">
+            AND u.id like '%${id}%'
+        </if>
+        <if test="username!=null">
+            AND ui.username like '%${username}%'
+        </if>
+        <if test="phone!=null">
+            AND ui.phone like '%${phone}%'
+        </if>
+
+    </select>
 </mapper>
