@@ -1,6 +1,8 @@
 package cn.edu.guet.model;
 
 
+import java.sql.Timestamp;
+
 public class Inform {
 
   private String id;
@@ -29,13 +31,8 @@ public class Inform {
   }
 
 
-  public long getStarttime() {
-    if (starttime != null){
-      return starttime.getTime();
-    }
-    else {
-      return 0;
-    }
+  public Timestamp getStarttime() {
+    return starttime;
   }
 
   public void setStarttime(java.sql.Timestamp starttime) {
@@ -43,13 +40,10 @@ public class Inform {
   }
 
 
-  public long getEndtime() {
-    if (endtime != null){
-      return endtime.getTime();
-    }else {
-      return 0;
-    }
+  public Timestamp getEndtime() {
+    return endtime;
   }
+
 
   public void setEndtime(java.sql.Timestamp endtime) {
     this.endtime = endtime;
