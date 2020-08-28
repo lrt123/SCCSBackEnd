@@ -12,3 +12,7 @@ mybatis:
 server:
   servlet:
     context-path: /SCCSBackEnd
+logging:
+  level:
+    root: INFO
+    cn.edu.guet.mapper: DEBUG

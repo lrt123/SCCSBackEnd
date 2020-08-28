@@ -18,9 +18,13 @@ public class CourseInfoController {
     @Autowired
     ICourseInfoService courseInfoService;
     @RequestMapping(value = "getCourseInfoById",method = RequestMethod.GET)
-    public ResponseTemplate getCourseInfoById(String lessonno){
-        CourseInfo courseInfo=courseInfoService.getCourseInfoById(lessonno);
-        return ResponseTemplate.result(200,"查询成功",courseInfo);
+    public ResponseTemplate getCourseInfoById(String lessoncode){
+        if (lessoncode!=null){
+            CourseInfo courseInfo=courseInfoService.getCourseInfoById(lessoncode);
+            return ResponseTemplate.result(200,"查询成功",courseInfo);
+        }
+        return ResponseTemplate.result(200,"参数为空",null);
+
     }
     @RequestMapping(value = "getAllCourseInfo",method = RequestMethod.GET)
     public ResponseTemplate getAllCourseInfo(){
@@ -40,5 +44,34 @@ public class CourseInfoController {
             e.printStackTrace();
             return ResponseTemplate.result(401,"更新失败",courseInfo);
         }
+    }
+
+
+    @RequestMapping(value = "saveCourseInfo",method = RequestMethod.POST)
+    public ResponseTemplate saveCourseInfo(@RequestBody CourseInfo courseInfo){
+        try{
+            if (courseInfo!=null){
+                courseInfoService.saveCourseInfo(courseInfo);
+                return ResponseTemplate.result(200,"添加成功",null);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseTemplate.result(401,"添加失败",courseInfo);
+        }
+        return ResponseTemplate.result(401,"参数为空",null);
+    }
+
+    @RequestMapping(value = "deleteCourseInfo",method = RequestMethod.GET)
+    public ResponseTemplate deleteCourseInfo(String lessoncode){
+        try{
+            if (lessoncode!=null && lessoncode!=""){
+                courseInfoService.deleteCourseInfo(lessoncode);
+                return ResponseTemplate.result(200,"删除成功",null);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseTemplate.result(401,"添加失败",null);
+        }
+        return ResponseTemplate.result(401,"参数为空",null);
     }
 }
