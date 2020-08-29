@@ -25,6 +25,9 @@
 	<select id="getAllMenu" resultMap="getMenuAndChildMenusMap">
 		SELECT * FROM menu WHERE pid IS NULL
 	</select>
+	<select id="getAllAllMenu" resultMap="getMenuAndChildMenusMap">
+		SELECT * FROM menu
+	</select>
 	<insert id="saveMenu" parameterType="Menu">
 		insert into menu values(#{menuid},#{pid},#{menuname},#{url},#{icon})
 	</insert>

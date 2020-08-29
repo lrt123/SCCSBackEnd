@@ -12,6 +12,7 @@ mybatis:
 server:
   servlet:
     context-path: /SCCSBackEnd
+  port: 8080
 logging:
   level:
     root: INFO
