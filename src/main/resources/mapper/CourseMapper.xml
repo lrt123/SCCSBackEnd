@@ -5,7 +5,7 @@
 	<id column="Lessonno" property="lessonno"/>
 	<result column="credit" property="credit" javaType="double"/>
 	<result column="period" property="period" javaType="double"/>
-		<result column="limit" property="limit"/>
+		<result column="limit" property="limit" javaType="INTEGER"/>
 
 	<association  property="teacher" javaType="Teacher">
 		<result property="id" column="ID"/>
@@ -38,8 +38,8 @@
 		where c0.lessoncode= ci.lessoncode and c0.classroomloc = cri.classroomloc and cri.buildingid=cb.id and
 		c0.teacherid=t.id
 	</select>
-	<update id="updateCourse" parameterType="course">
-		update course SET teacherid=#{teacher.id},lessoncode=#{courseInfo.lessoncode},limit=#{limit}
+	<update id="updateCourse" parameterType="Course">
+		update course SET teacherid=#{teacher.id},lessoncode=#{courseInfo.lessoncode},limit=#{limit},
 		classroomloc=#{classroomInfo.classroomloc},credit=#{credit},period=#{period} where
 		lessonno=#{lessonno}
 	</update>

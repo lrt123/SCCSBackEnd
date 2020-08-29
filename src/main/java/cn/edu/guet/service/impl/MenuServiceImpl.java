@@ -23,6 +23,9 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
+    public List<Menu> getAllAllMenu() { return menuMapper.getAllAllMenu(); }
+
+    @Override
     public void saveMenu(Menu menu) throws Exception {
         menuMapper.saveMenu(menu);
     }
