@@ -18,5 +18,11 @@
         update course_info set lessonname=#{lessonname},major=#{major} where lessoncode=#{lessoncode}
     </update>
 
+	<insert id="saveCourseInfo" parameterType="CourseInfo">
+		insert into course_info values (#{lessoncode},#{lessonname},#{major})
+	</insert>
+	<delete id="deleteCourseInfo" >
+		delete from course_info where lessoncode=#{lessoncode}
+	</delete>
 
 </mapper>

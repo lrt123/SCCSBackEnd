@@ -4,11 +4,14 @@ import cn.edu.guet.model.Menu;
 import cn.edu.guet.model.ResponseTemplate;
 import cn.edu.guet.model.Users;
 import cn.edu.guet.service.IUserService;
+import cn.edu.guet.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("users")
@@ -59,6 +62,7 @@ public class UsersController {
         return ResponseTemplate.result(401,"参数为空",null);
     }
 
+
     @RequestMapping("getUserById")
     public ResponseTemplate getUsersById(String id){
         if(id!=null && id!=""){
@@ -67,10 +71,14 @@ public class UsersController {
         }
         return ResponseTemplate.result(200,"参数为空",null);
     }
-    @RequestMapping("getAllUser")
-    public ResponseTemplate getAllUsers(){
-        List<Users> userList = userService.getAllUsers();
-        return ResponseTemplate.result(200,"查找所用用户",userList);
+    @RequestMapping(value = "getAllUser",method = RequestMethod.GET)
+    public ResponseTemplate getAllUsers(int currentPage){
+        PageModel<Users> pageModel = null;
+        if(currentPage>0){
+            int rowPerPage = 2;
+            pageModel = userService.getAllUsers(rowPerPage, currentPage);
+        }
+        return ResponseTemplate.result(200,"查找所用用户",pageModel);
     }
 
     @RequestMapping("getUserMenu")
@@ -80,5 +88,20 @@ public class UsersController {
             return ResponseTemplate.result(200,"查找菜单成功",menuLsit);
         }
         return ResponseTemplate.result(200,"参数为空",null);
+    }
+    @RequestMapping(value = "getUsersByCondition",method = RequestMethod.GET)
+    public ResponseTemplate getUsersByCondition(String condition,String value){
+        System.out.println("condition = " + condition);
+        System.out.println("value = " + value);
+        List<Users> usersByCondition = null;
+        if(condition!=null && value !=null){
+            Map map = new HashMap<>();
+            map.put(condition,value);
+            usersByCondition = userService.getUsersByCondition(map);
+            if(usersByCondition.isEmpty())
+                 return ResponseTemplate.result(200,"没有与之相关的数据",usersByCondition);
+            return ResponseTemplate.result(200,"查询成功",usersByCondition);
+        }
+        return ResponseTemplate.result(401,"查询失败",usersByCondition);
     }
 }

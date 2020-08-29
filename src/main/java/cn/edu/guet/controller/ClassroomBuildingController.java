@@ -39,4 +39,33 @@ public class ClassroomBuildingController {
             return ResponseTemplate.result(401,"更新失败",classroomBuilding);
         }
     }
+
+    @RequestMapping(value = "saveClassroomBuilding",method = RequestMethod.POST)
+    public ResponseTemplate saveClassroomBuilding(@RequestBody ClassroomBuilding classroomBuilding){
+        try{
+            if (classroomBuilding!=null){
+                classroomBuildingService.saveClassroomBuilding(classroomBuilding);
+                return ResponseTemplate.result(200,"添加成功",null);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseTemplate.result(401,"添加失败",classroomBuilding);
+        }
+        return ResponseTemplate.result(401,"参数为空",null);
+    }
+
+    @RequestMapping(value = "deleteClassroomBuilding",method = RequestMethod.GET)
+    public ResponseTemplate deleteClassroomBuilding(String id){
+        try{
+            if (id!=null){
+                classroomBuildingService.deleteClassroomBuilding(id);
+                return ResponseTemplate.result(200,"删除成功",null);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseTemplate.result(401,"添加失败",null);
+        }
+        return ResponseTemplate.result(401,"参数为空",null);
+    }
+
 }

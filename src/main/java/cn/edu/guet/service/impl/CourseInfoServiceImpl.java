@@ -13,9 +13,18 @@ public class CourseInfoServiceImpl implements ICourseInfoService {
     CourseInfoMapper courseInfoMapper;
 
     @Override
+    public void saveCourseInfo(CourseInfo courseInfo) throws Exception {
+        courseInfoMapper.saveCourseInfo(courseInfo);
+    }
+
+    @Override
+    public void deleteCourseInfo(String lessoncode) throws Exception {
+        courseInfoMapper.deleteCourseInfo(lessoncode);
+    }
+
+    @Override
     public void updateCourseInfo(CourseInfo courseInfo) throws Exception {
         courseInfoMapper.updateCourseInfo(courseInfo);
-
     }
 
     @Override
