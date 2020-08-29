@@ -66,6 +66,4 @@ public class CourseServiceImpl implements ICourseService {
         teacherInfoChangeMapper.teacherjobChange(course.getTeacher());
         userInfoMapper.updateUserInfo(course.getTeacher().getUserInfo());
     }
-
-
 }
