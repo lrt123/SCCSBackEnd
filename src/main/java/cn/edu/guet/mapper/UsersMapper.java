@@ -21,4 +21,5 @@ public interface UsersMapper {
     int getAllUsersTotal();
     List<Users> getUsersByCondition(Map map);
     Users login(@Param("id")String id,@Param("password")String password);
+
 }

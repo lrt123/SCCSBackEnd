@@ -51,6 +51,7 @@ public class UsersController {
     @RequestMapping(value = "deleteUser" ,method = RequestMethod.GET)
     public ResponseTemplate deleteUsersById(String id){
         try{
+            System.out.println("id = " + id);
             if(id !=null && id!=""){
                 userService.deleteUsersById(id);
                 return ResponseTemplate.result(200,"删除用户成功",null);

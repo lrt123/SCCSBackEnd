@@ -16,4 +16,5 @@ public interface IUserService {
     List<Menu> getUserMenusById(String id);
     List<Users> getUsersByCondition(Map map);
     Users login(String id,String password);
+
 }
