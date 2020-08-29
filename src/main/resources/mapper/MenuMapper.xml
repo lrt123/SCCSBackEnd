@@ -22,11 +22,12 @@
 		SELECT m.* FROM menu m,user_role ur,role_menu rm
 		WHERE ur.roleid=rm.roleid AND m.menuid=rm.menuid AND ur.id=#{userid} AND m.pid IS NULL
 	</select>
-
 	<select id="getAllMenu" resultMap="getMenuAndChildMenusMap">
 		SELECT * FROM menu WHERE pid IS NULL
 	</select>
-
+	<select id="getAllAllMenu" resultMap="getMenuAndChildMenusMap">
+		SELECT * FROM menu
+	</select>
 	<insert id="saveMenu" parameterType="Menu">
 		insert into menu values(#{menuid},#{pid},#{menuname},#{url},#{icon})
 	</insert>

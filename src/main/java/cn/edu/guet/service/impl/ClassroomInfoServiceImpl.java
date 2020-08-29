@@ -17,18 +17,29 @@ public class ClassroomInfoServiceImpl implements IClassroomInfoService {
     ClassroomBuildingMapper classroomBuildingMapper;
 
     @Override
+    public void saveClassroomInfo(ClassroomInfo classroomInfo) throws Exception {
+        classroomInfoMapper.saveClassroomInfo(classroomInfo);
+    }
+
+    @Override
+    public void deleteClassroomInfo(String classroomloc) throws Exception {
+        classroomInfoMapper.deleteClassroomInfo(classroomloc);
+    }
+
+    @Override
     public ClassroomInfo getClassroomInfoByid(String classroomloc) {
         return classroomInfoMapper.getClassroomInfoByid(classroomloc);
     }
 
     @Override
     public List<ClassroomInfo> getAllClassroomInfo() {
-        return classroomInfoMapper.getAllClassroomInfo();
+        List<ClassroomInfo> classroomInfos = classroomInfoMapper.getAllClassroomInfo();
+        return classroomInfos;
     }
 
     @Override
     public void updateClassroomInfo(ClassroomInfo classroomInfo) throws Exception {
         classroomInfoMapper.updateClassroomInfo(classroomInfo);
-        classroomBuildingMapper.updateClassroomBuilding(classroomInfo.getClassroomBuilding());
+      //  classroomBuildingMapper.updateClassroomBuilding(classroomInfo.getClassroomBuilding());
     }
 }

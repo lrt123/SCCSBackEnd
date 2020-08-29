@@ -17,6 +17,13 @@
 	<update id="updateClassroomBuilding" parameterType="ClassroomBuilding">
         update classroom_building set name=#{name} where id=#{id}
     </update>
+	
+	<insert id="saveClassroomBuilding" parameterType="ClassroomBuilding">
+		insert into classroom_building values (#{id},#{name})
+	</insert>
+	<delete id="deleteClassroomBuilding" parameterType="ClassroomBuilding">
+		delete from classroom_building where id=#{id}
+	</delete>
 
 
 </mapper>

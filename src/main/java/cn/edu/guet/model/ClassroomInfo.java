@@ -1,9 +1,11 @@
 package cn.edu.guet.model;
 
 
+import java.util.List;
+
 public class ClassroomInfo {
 
-  private ClassroomBuilding classroomBuilding;
+  private ClassroomBuilding classroomBuilding ;
   private String classroomloc;
   private String classroomname;
 
@@ -31,7 +33,6 @@ public class ClassroomInfo {
   public void setClassroomloc(String classroomloc) {
     this.classroomloc = classroomloc;
   }
-
 
   public String getClassroomname() {
     return classroomname;
