@@ -9,6 +9,8 @@ public class Course {
   private ClassroomInfo classroomInfo;
   private double credit;
   private double period;
+  private int limit;
+
 
   @Override
   public String toString() {
@@ -19,9 +21,17 @@ public class Course {
             ", classroomInfo=" + classroomInfo +
             ", credit=" + credit +
             ", period=" + period +
+            ", limit=" + limit +
             '}';
   }
 
+  public int getLimit() {
+    return limit;
+  }
+
+  public void setLimit(int limit) {
+    this.limit = limit;
+  }
   public Teacher getTeacher() {
     return teacher;
   }

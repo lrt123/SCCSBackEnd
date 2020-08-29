@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.CourseManagerMapper">
+    <resultMap id="optionMap" type="options">
+        <id property="value" column="ACADEMYID"></id>
+        <result property="label" column="NAME"/>
+        <collection property="children" select="getMajorByAcademyId" ofType="options"
+                    column="ACADEMYID">
+        </collection>
+    </resultMap>
+    <resultMap id="majorOptionMap" type="options">
+        <id property="value" column="MAJORID"></id>
+        <result property="label" column="MAJORNAME"/>
+    </resultMap>
+    <select id="getOptions" resultMap="optionMap">
+        SELECT ACADEMYID,NAME FROM ACADEMY_INFO ORDER BY ACADEMYID
+    </select>
+    <select id="getMajorByAcademyId" resultMap="majorOptionMap">
+        SELECT MAJORID,MAJORNAME FROM MAJOR_INFO WHERE ACADEMYID=#{value} ORDER BY MAJORID
+    </select>
+    <select id="getInfoByMajorid" resultType="lateregisterbean">
+        SELECT C.LESSONNO,C.LESSONCODE,CI.LESSONNAME,USERNAME TEACHERNAME,SELECTEDNUM,C.LIMIT
+        FROM COURSE C,USER_INFO U,COURSE_INFO CI,
+        (SELECT COUNT(*) SELECTEDNUM,LESSONNO FROM STUDENT_COURSE GROUP BY LESSONNO) SC
+        WHERE C.TEACHERID=U.ID AND C.LESSONCODE=CI.LESSONCODE AND C.LESSONNO=SC.LESSONNO AND C.LESSONCODE IN
+        (SELECT LESSONCODE FROM MAJOR_COURSE WHERE MAJORID=#{value})
+    </select>
+    <select id="getInfoByLessonNo" resultType="lateregisterbean">
+        SELECT C.LESSONNO,C.LESSONCODE,CI.LESSONNAME,USERNAME TEACHERNAME,SELECTEDNUM,C.LIMIT
+        FROM COURSE C,USER_INFO U,COURSE_INFO CI,
+        (SELECT COUNT(*) SELECTEDNUM,LESSONNO FROM STUDENT_COURSE GROUP BY LESSONNO) SC
+        WHERE C.TEACHERID=U.ID AND C.LESSONCODE=CI.LESSONCODE AND C.LESSONNO=SC.LESSONNO AND C.LESSONNO = #{value}
+    </select>
+    <update id="extendLimit">
+        UPDATE COURSE SET LIMIT=#{limit} WHERE LESSONNO=#{lessonno}
+    </update>
+    <insert id="addStu" >
+        <selectKey  keyProperty="id" resultType="java.lang.String" order="BEFORE">
+            select TO_CHAR(id+1) id from (select TO_NUMBER(id) id from STUDENT_COURSE order by id desc) where rownum=1
+        </selectKey>
+        INSERT INTO STUDENT_COURSE(ID, STUID, LESSONNO) VALUES(#{id},#{stuid},#{lessonno})
+    </insert>
+</mapper>

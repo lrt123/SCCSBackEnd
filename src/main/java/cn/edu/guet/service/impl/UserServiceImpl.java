@@ -9,10 +9,13 @@ import cn.edu.guet.model.Role;
 import cn.edu.guet.model.UserInfo;
 import cn.edu.guet.model.Users;
 import cn.edu.guet.service.IUserService;
+import cn.edu.guet.util.PageModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
@@ -54,12 +57,26 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<Users> getAllUsers() {
-        return usersMapper.getAllUsers();
+    public PageModel<Users> getAllUsers(int rowPerPage, int currentPage) {
+        //开始行
+        int startRow = (currentPage-1)*rowPerPage+1;
+        //结束行
+        int endRow = rowPerPage * currentPage;
+        List<Users> allUsers = usersMapper.getAllUsers(endRow, startRow);
+        PageModel<Users> pageModel = new PageModel<>();
+        pageModel.setList(allUsers);
+        pageModel.setCurrentPage(currentPage);
+        int totalRows = usersMapper.getAllUsersTotal();
+        pageModel.setTotalPage(totalRows%rowPerPage==0?(totalRows/rowPerPage):(totalRows/rowPerPage)+1);
+        return pageModel;
     }
-
     @Override
     public List<Menu> getUserMenusById(String id) {
        return  menuMapper.getUserMenu(id);
+    }
+
+    @Override
+    public List<Users> getUsersByCondition(Map map) {
+        return usersMapper.getUsersByCondition(map);
     }
 }

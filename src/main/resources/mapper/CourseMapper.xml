@@ -3,48 +3,53 @@
 <mapper namespace="cn.edu.guet.mapper.CourseMapper">
 	<resultMap id="allCourse" type="course">
 	<id column="Lessonno" property="lessonno"/>
-		<result column="credit" property="credit" javaType="double"/>
-		<result column="period" property="period" javaType="double"/>
+	<result column="credit" property="credit" javaType="double"/>
+	<result column="period" property="period" javaType="double"/>
+		<result column="limit" property="limit" javaType="INTEGER"/>
 
 	<association  property="teacher" javaType="Teacher">
 		<result property="id" column="ID"/>
 		<result property="jobtitle" column="JOBTITLE"/>
 	</association>
-
-
 		<association property="courseInfo" javaType="CourseInfo">
 			<id property="lessoncode" column="LESSONCODE"/>
 			<result property="lessonname" column="LESSONNAME"/>
 			<result property="major" column="MAJOR"/>
 		</association>
 
-		<association property="classroomInfo" javaType="ClassroomInfo">
+		<collection property="classroomInfo" ofType="ClassroomInfo">
 			<id property="classroomloc" column="CLASSROOMLOC"/>
 			<result property="classroomname" column="CLASSROOMNAME"/>
-
 			<association property="classroomBuilding" javaType="ClassroomBuilding">
 				<id property="id" column="ID"/>
 				<result property="name" column="NAME"/>
 			</association>
 
-		</association>
-
+		</collection>
 	</resultMap>
 
     <select id="getCourseByid" resultMap="allCourse">
-		select * from course c,course_info ci,classroom_info cri,classroom_building cb,teacher t
-		where c.lessoncode= ci.lessoncode and c.classroomloc = cri.classroomloc and
-		cb.id=cri.buildingid and c.teacherid=t.id and c.lessonno=#{lessonno}
+		select * from course c0,course_info ci,classroom_info cri,teacher t,classroom_building cb
+		where c0.lessoncode= ci.lessoncode and c0.classroomloc = cri.classroomloc and cri.buildingid=cb.id and
+		c0.teacherid=t.id  and c0.lessonno=#{lessonno}
 	</select>
 	<select id="getAllCourse" resultMap="allCourse">
-		select * from course c,course_info ci,classroom_info cri,classroom_building cb,teacher t
+		select * from course c0,course_info ci,classroom_info cri,teacher t,classroom_building cb
+		where c0.lessoncode= ci.lessoncode and c0.classroomloc = cri.classroomloc and cri.buildingid=cb.id and
+		c0.teacherid=t.id
 	</select>
-	<update id="updateCourse" parameterType="course">
-		update course SET teacherid=#{teacher.id},lessoncode=#{course_info.lessoncode},
-		classroomloc=#{classroom_info.classroomloc},credit=#{credit},period=#{period} where
+	<update id="updateCourse" parameterType="Course">
+		update course SET teacherid=#{teacher.id},lessoncode=#{courseInfo.lessoncode},limit=#{limit},
+		classroomloc=#{classroomInfo.classroomloc},credit=#{credit},period=#{period} where
 		lessonno=#{lessonno}
 	</update>
 
+	<insert id="saveCourse" parameterType="Course">
+		insert into course values (#{Lessonno},#{credit},#{period}，#{teacherid})
+	</insert>
+	<delete id="deleteCourse" parameterType="Course">
+		delete from course where lessonno=#{lessonno}
+	</delete>
 
 </mapper>
 

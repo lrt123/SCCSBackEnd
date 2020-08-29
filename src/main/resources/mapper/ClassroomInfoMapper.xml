@@ -11,16 +11,23 @@
 		</association>
 
 	</resultMap>
-	<select id="getCourseInfoById" resultMap="classroomInfoMap">
-        select * from class_info where classroomloc=#{classroomloc}
+	<select id="getClassroomInfoByid" resultMap="classroomInfoMap">
+        select * from classroom_info ci,classroom_building cb where ci.buildingid=cb.id and classroomloc=#{classroomloc}
     </select>
-	<select id="getAllCourseInfo" resultMap="classroomInfoMap">
-        select * from class_info
+	<select id="getAllClassroomInfo" resultMap="classroomInfoMap">
+        select * from classroom_info ci,classroom_building cb where ci.buildingid=cb.id
     </select>
 
-	<update id="updateCourseInfo" parameterType="ClassroomInfo">
-        update class_info set classroomname=#{classroomname},buildingid=#{classroom_building.id} where classroomloc=#{classroomloc}
+	<update id="updateClassroomInfo" parameterType="ClassroomInfo">
+        update classroom_info ci,classroom_building cb set classroomname=#{classroomname},buildingid=#{classroom_building.id} where where ci.buildingid=cb.id and classroomloc=#{classroomloc}
     </update>
+
+	<insert id="saveClassroomInfo" parameterType="ClassroomInfo">
+		insert into classroom_info values (#{classroomloc},#{classroomname})
+	</insert>
+	<delete id="deleteClassroomInfo">
+		delete from classroom_info where classroomloc=#{classroomloc}
+	</delete>
 
 
 </mapper>
