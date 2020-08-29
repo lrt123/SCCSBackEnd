@@ -30,7 +30,9 @@ public class UserServiceImpl implements IUserService {
     public void saveUsers(Users users) throws Exception {
         users.setPassword(users.getId());
         usersMapper.saveUsers(users);
-        userInfoMapper.saveUserInfo(users.getUserInfo());
+        UserInfo ui = users.getUserInfo();
+        ui.setId(users.getId());
+        userInfoMapper.saveUserInfo(ui);
         for(Role role:users.getRoles()){
             usersMapper.saveRole(users.getId(),role.getRoleid());
         }
@@ -78,5 +80,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<Users> getUsersByCondition(Map map) {
         return usersMapper.getUsersByCondition(map);
+    }
+
+    @Override
+    public Users login(String id, String password) {
+
+        return usersMapper.login(id,password);
     }
 }

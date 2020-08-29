@@ -51,6 +51,7 @@ public class UsersController {
     @RequestMapping(value = "deleteUser" ,method = RequestMethod.GET)
     public ResponseTemplate deleteUsersById(String id){
         try{
+            System.out.println("id = " + id);
             if(id !=null && id!=""){
                 userService.deleteUsersById(id);
                 return ResponseTemplate.result(200,"删除用户成功",null);
@@ -103,5 +104,16 @@ public class UsersController {
             return ResponseTemplate.result(200,"查询成功",usersByCondition);
         }
         return ResponseTemplate.result(401,"查询失败",usersByCondition);
+    }
+    @RequestMapping(value = "login",method = RequestMethod.POST)
+    public ResponseTemplate login(String username,String password){
+        if(username==null && password == null){
+            return ResponseTemplate.result(401,"登录失败",null);
+        }
+        Users login = userService.login(username, password);
+        if(login!=null){
+            return ResponseTemplate.result(200,"登录成功",login);
+        }
+        return ResponseTemplate.result(401,"登录失败",null);
     }
 }

@@ -15,4 +15,6 @@ public interface IUserService {
     PageModel<Users> getAllUsers(int rowPerPage,int currentPage);
     List<Menu> getUserMenusById(String id);
     List<Users> getUsersByCondition(Map map);
+    Users login(String id,String password);
+
 }

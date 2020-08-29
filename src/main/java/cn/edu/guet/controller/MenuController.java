@@ -28,12 +28,6 @@ public class MenuController {
         return ResponseTemplate.result(200,"查询所有菜单成功",allMenu);
     }
 
-    @RequestMapping(value = "getAllAllMenu",method = RequestMethod.GET)
-    public ResponseTemplate getAllAllMenu(){
-        List<Menu> allMenu = menuService.getAllAllMenu();
-        return ResponseTemplate.result(200,"查询所有菜单成功",allMenu);
-    }
-
     @RequestMapping(value = "saveMenu",method = RequestMethod.POST)
     public ResponseTemplate saveMenu(@RequestBody Menu menu) {
         System.err.println("menu.getMenuname() = " + menu.getMenuname());
@@ -60,9 +54,7 @@ public class MenuController {
     @RequestMapping(value = "updateMenu",method = RequestMethod.POST)
     public ResponseTemplate updateMenu(@RequestBody Menu menu) {
         try {
-            System.out.println("menu="+menu);
-            System.out.println(menu.getMenuid());
-            System.out.println(menu.getMenuname());
+            System.out.println("menu = " + menu);
             menuService.updateMenu(menu);
             return ResponseTemplate.result(200,"更新菜单成功",null);
         } catch (Exception e) {

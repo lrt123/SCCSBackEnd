@@ -20,4 +20,6 @@ public interface UsersMapper {
     List<Users> getAllUsers(int endRow, int startRow);
     int getAllUsersTotal();
     List<Users> getUsersByCondition(Map map);
+    Users login(@Param("id")String id,@Param("password")String password);
+
 }
