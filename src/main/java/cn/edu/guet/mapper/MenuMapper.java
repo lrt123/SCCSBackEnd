@@ -11,6 +11,7 @@ import java.util.List;
 public interface MenuMapper {
     Menu getMenuById(String id);
     List<Menu> getAllMenu();
+    List<Menu> getAllAllMenu();
     List<Menu> getUserMenu(@Param("userid") String userid);
     void saveMenu(Menu menu) throws Exception;
     void deleteMenuById(String id) throws Exception;
