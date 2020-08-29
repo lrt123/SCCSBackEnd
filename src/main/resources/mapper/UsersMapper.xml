@@ -22,8 +22,6 @@
         select * from users u,user_info ui,role r,user_role ur where u.id = ui.id AND ur.id = u.id AND ur.roleid=r.roleId AND u.id=#{id}
     </select>
 
-
-
     <update id="updateUsers" parameterType="Users">
         update users set password=#{password} where id=#{id}
     </update>
@@ -43,6 +41,9 @@
         delete from users where id=#{id}
     </delete>
 
+    <select id="login" resultType="Users">
+        select id,password from users where id=#{id} and password=#{password}
+    </select>
     <select id="getAllUsers" resultMap="usersMap">
         SELECT * FROM
         (SELECT rownum rn,a.* FROM (

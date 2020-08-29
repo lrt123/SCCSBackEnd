@@ -54,6 +54,7 @@ public class MenuController {
     @RequestMapping(value = "updateMenu",method = RequestMethod.POST)
     public ResponseTemplate updateMenu(@RequestBody Menu menu) {
         try {
+            System.out.println("menu = " + menu);
             menuService.updateMenu(menu);
             return ResponseTemplate.result(200,"更新菜单成功",null);
         } catch (Exception e) {

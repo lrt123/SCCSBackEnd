@@ -104,4 +104,15 @@ public class UsersController {
         }
         return ResponseTemplate.result(401,"查询失败",usersByCondition);
     }
+    @RequestMapping(value = "login",method = RequestMethod.POST)
+    public ResponseTemplate login(String username,String password){
+        if(username==null && password == null){
+            return ResponseTemplate.result(401,"登录失败",null);
+        }
+        Users login = userService.login(username, password);
+        if(login!=null){
+            return ResponseTemplate.result(200,"登录成功",login);
+        }
+        return ResponseTemplate.result(401,"登录失败",null);
+    }
 }
